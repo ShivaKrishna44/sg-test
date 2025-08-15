@@ -1,0 +1,1 @@
+{"Modules":[{"Key":"","Source":"","Dir":"."},{"Key":"mysql_sg","Source":"git::https://github.com/ShivaKrishna44/terraform-aws-securitygroup.git?ref=main","Dir":".terraform/modules/mysql_sg"}]}
