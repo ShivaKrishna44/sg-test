@@ -5,14 +5,19 @@ terraform {
       version = "5.84.0"
     }
   }
+rm -rf .terraform terraform.tfstate terraform.tfstate.backup
 
-  backend "s3" {
-    bucket = "82s-tf-remote-state"
-    key    = "sg-test" # you should have unique keys with in the bucket, same key should not be used in other repos or tf projects
-    region = "us-east-1"
-    dynamodb_table = "82s-state-locking"
-  }
-}
+
+# (Should match your S3 bucket and DynamoDB table)
+# backend "s3" {
+#   bucket         = "cva-tf-remote-state"
+#   key            = "sg-test"
+#   region         = "us-east-1"
+#   dynamodb_table = "cva-state-locking"
+# }
+
+# 3️⃣ Initialize Terraform fresh with your backend
+terraform init -reconfigure
 
 provider "aws" {
   # Configuration options
